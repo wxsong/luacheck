@@ -72,7 +72,7 @@ $(LANES_A):	$(LANES_O)
 	$(AR) $@ $^
 	$(RANLIB) $@
 
-bin/luacheck.lua.c: $(LUA_A) $(LFS_A) $(LANES_A)
+luacheck.luastatic.c: $(LUA_A) $(LFS_A) $(LANES_A)
 	cp $(LUA_A) .
 	cp $(LFS_A) .
 	cp $(ARGPARSE_DIR)/src/argparse.lua .
@@ -81,7 +81,7 @@ bin/luacheck.lua.c: $(LUA_A) $(LFS_A) $(LANES_A)
 	cp -r ../src/luacheck .
 	CC="" luastatic bin/luacheck.lua luacheck/*.lua luacheck/*/*.lua luacheck/*/*/*.lua argparse.lua lanes.lua liblua.a lfs.a lanes.a
 
-$(TARGET):	bin/luacheck.lua.c
+$(TARGET):	luacheck.luastatic.c
 	$(CC) $(if $(LINUX),-static) -Os $< $(LUA_A) $(LFS_A) $(LANES_A) -I$(LUA_DIR)/src -lm $(if $(LINUX),-lpthread) -o $@
 	$(STRIP) $@
 
