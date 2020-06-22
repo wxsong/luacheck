@@ -121,7 +121,29 @@ local function make_min_def(method_defs)
          tonumber = empty,
          tostring = empty,
          type = empty,
-         xpcall = empty
+         xpcall = empty,
+         require_owner_auth = empty,
+         exec_account = empty,
+         get_balance = empty,
+         get_pay_fee = empty,
+         create_key = empty,
+         set_key = empty,
+         get_key = empty,
+         lcreate = empty,
+         lpush = empty,
+         rpush = empty,
+         lpop = empty,
+         rpop = empty,
+         ldel = empty,
+         llen = empty,
+         lall = empty,
+         hcreate = empty,
+         hset = empty,
+         hget = empty,
+         hlen = empty,
+         hdel = empty,
+         grant = empty,
+         random_seed = empty
       }
    }
 end
